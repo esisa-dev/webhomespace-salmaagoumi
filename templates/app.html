@@ -1,11 +1,49 @@
 <html>
   <link rel="stylesheet"  type="text/css" href="{{url_for('static', filename='css/app.css')}}">
   <center>
-    <h1>Saisir un choix</h1>
+    <h1>Bienvenu dans votre Home Space</h1> <br />
+    <a href="/logout"><img src="static/img/power-off.png" alt="Logout" style="width: 32px; height: 32px; margin-bottom: 10px;"></a>
+    
     <nav>
-      <a href="#">?????</a> ---
-      <a href="#">?????</a> --- <a href="/logout">Logout</a> |
-      <a href></a>
+      <a href="#">Files</a>&emsp;&emsp;
+      <a href="#">Dirs</a>&emsp;&emsp;
+      <a href="#">Space</a>
     </nav>
+    <form action="#" method="get" class="search-form">
+      <input type="text" name="q" placeholder="Rechercher...">
+      <a href="#" class="search-btn"><img src="static/img/search-interface-symbol.png" alt="search" style="width: 23px; height: 23px;"></a>
+    </form>
+    <a href="#" class="download-btn"><img src="static/img/download.png" alt="download" style="width: 32px; height: 32px; margin-top: 7px;"></a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Dossier</th>
+          &emsp;&emsp;<th>Date de modification</th>
+          <th>Taille</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    
+
   </center>
 </html>
