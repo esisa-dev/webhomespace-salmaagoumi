@@ -1,8 +1,9 @@
 <html>
   <link rel="stylesheet"  type="text/css" href="{{url_for('static', filename='css/app.css')}}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <center>
     <h1>Bienvenu dans votre Home Space</h1> <br />
-    <a href="/logout"><img src="static/img/power-off.png" alt="Logout" style="width: 32px; height: 32px; margin-bottom: 10px;"></a>
+    <a href="/logout"><img src="{{url_for('static', filename='img/power-off.png')}}" alt="Logout" style="width: 32px; height: 32px; margin-bottom: 10px;"></a>
     
     <nav>
       <a href="#">Files</a>&emsp;&emsp;
@@ -11,9 +12,9 @@
     </nav>
     <form action="#" method="get" class="search-form">
       <input type="text" name="q" placeholder="Rechercher...">
-      <a href="#" class="search-btn"><img src="static/img/search-interface-symbol.png" alt="search" style="width: 23px; height: 23px;"></a>
+      <a href="#" class="search-btn"><img src="{{url_for('static', filename='img/search-interface-symbol.png')}}" alt="search" style="width: 23px; height: 23px;"></a>
     </form>
-    <a href="#" class="download-btn"><img src="static/img/download.png" alt="download" style="width: 32px; height: 32px; margin-top: 7px;"></a>
+    <a href="#" class="download-btn"><img src="{{url_for('static', filename='img/download.png')}}" alt="download" style="width: 32px; height: 32px; margin-top: 7px;"></a>
 
     <table>
       <thead>
@@ -24,21 +25,20 @@
         </tr>
       </thead>
       <tbody>
+        {%for i in range(0, dirlen)%}
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="dir" onclick="handleClick('{{dirs[i][3]}}')">{{dirs[i][0]}}</td>
+          <td>{{dirs[i][1]}}</td>
+          <td>{{dirs[i][2]}}</td>
         </tr>
+        {%endfor%}
+        {%for i in range(0, filelen)%}
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="file">{{files[i][0]}}</td>
+          <td>{{files[i][1]}}</td>
+          <td>{{files[i][2]}}</td>
         </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        {%endfor%}
       </tbody>
     </table>
     
@@ -46,4 +46,15 @@
     
 
   </center>
+  <script>
+    function handleClick(path) {
+      $.ajax({
+        type: 'GET',
+        url: '/dir/' + path,
+        success: function (response) {
+          window.location.href = '{{ url_for("dir", dir_path="")}}' + encodeURIComponent(path)
+        }
+      })
+    }
+  </script>
 </html>

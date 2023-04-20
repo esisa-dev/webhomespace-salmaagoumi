@@ -6,6 +6,7 @@ from flask import(
     render_template,
     redirect,
     session,
+    url_for
 )
 
 from dal import UserDao
@@ -27,7 +28,7 @@ def login():
         password=request.form['password']
         if (userDal.authenticate(str(username), str(password))):
             app.secret_key=generate_key(username)
-            response=app.make_response(render_template('app.html'))
+            response=app.make_response(redirect(url_for('dir', dir_path=f'/home/{username}')))
             session['user_id']=username
             response.set_cookie('access_time',str(datetime.now()))
             return response
@@ -35,12 +36,18 @@ def login():
             return render_template('login.html',error_auth='username ou password est incorrecte')
     else:
         if('user_id' in session):
-            return render_template('app.html')
+            return render_template('app.html', len=10)
         return redirect('/')
+
+@app.route('/dir/<path:dir_path>')
+def dir(dir_path):
+    (dirs, files) = userDal.getUserData('/' + dir_path)
+    return render_template('app.html', dirs = dirs, files=files,dirlen=len(dirs),filelen=len(files))
 
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)
+    userDal.logged = False
     return redirect('/')
 
 if(__name__ == "__main__"):
