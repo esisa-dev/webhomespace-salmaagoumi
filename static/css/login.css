@@ -1,3 +1,58 @@
 body {
-    background-color: aqua;
+    background-color: rgba(18, 242, 18, 0.344);
+    margin-top: 200px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 40px;
+    border: 2px solid darkmagenta;
+    padding: 10px;
+    display: inline-block;
 }
+      
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma;
+
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    display: block;
+    margin-top: 5px;
+    padding: 10px;
+    width: 300px;
+    border: 2px groove blue;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  p {
+    color: red;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  

@@ -32,7 +32,7 @@ def login():
             response.set_cookie('access_time',str(datetime.now()))
             return response
         else:
-            return render_template('login.html',error_auth='login or password incorrect')
+            return render_template('login.html',error_auth='username ou password est incorrecte')
     else:
         if('user_id' in session):
             return render_template('app.html')

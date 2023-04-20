@@ -1,0 +1,48 @@
+/* Centrer le contenu de la page */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    margin-bottom: 80px;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: darkmagenta;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  nav a {
+    color: #9133e2;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  nav a:hover {
+    background-color: #22a70bc0;
+    color: #fff;
+  }
+  nav a:last-child {
+    background-color: #22a70bc0;
+    color: #fff;
+  }
+  
