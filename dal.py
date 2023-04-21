@@ -1,7 +1,7 @@
 import os, spwd, crypt, datetime, math
 
 class UserDao:
-    def _init_(self) -> None:
+    def _init_(self) -> None: 
         self.logged = False
         pass
 
