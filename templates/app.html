@@ -6,9 +6,9 @@
     <a href="/logout"><img src="{{url_for('static', filename='img/power-off.png')}}" alt="Logout" style="width: 32px; height: 32px; margin-bottom: 10px;"></a>
     
     <nav>
-      <a href="#">Files</a>&emsp;&emsp;
-      <a href="#">Dirs</a>&emsp;&emsp;
-      <a href="#">Space</a>
+      <a href="/get_user_files">Files ({{ num_files }})</a>&emsp;&emsp; 
+      <a href="/get_user_dirs">Dirs ({{ num_dirs }})</a>&emsp;&emsp; 
+      <a href="#">Space {{ total_size }}</a>
     </nav>
     <form action="#" method="get" class="search-form">
       <input type="text" name="q" placeholder="Rechercher...">
